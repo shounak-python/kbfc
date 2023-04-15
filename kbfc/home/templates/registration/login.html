@@ -1,0 +1,31 @@
+{%include 'home/header.html'%}
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+<!--Login--> 
+<div>
+  <div class="anti-img-content">
+    <img class="img-left" src="/static/blogs/login.jpg">
+      <h1><strong>LOGIN</strong></h1>
+      <h2>Please login to your account.</h2>
+
+    </div>
+    
+      <div class="left-container py-5" style="padding-left:55%;">
+      <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit">Login</button>
+        <button class="btn btn-secondary" type="reset">Clear</button>
+      </form>
+      <p>Don't have an account? <a href="{%url 'home:register'%}">Create an account</a>.</p>
+    
+  </div>
+  </div>
+
+
+{% endblock %}
+
+{%include 'home/footer.html'%}

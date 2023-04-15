@@ -1,0 +1,28 @@
+{% include 'home/header.html' %}
+
+{%block registration%}
+
+{% load crispy_forms_tags %}
+{% include 'home/messages.html' %}
+<div>
+    <div class="anti-img-content">
+        <img class="img-left" src="/static/blogs/register.jpg">
+        <h1><strong>REGISTER</strong></h1>
+        <h2>Please register your account to create & edit blogs.</h2>
+    </div>
+    </div>
+<div class="left-container py-5" style="padding-left:50%;">
+<form method="POST">
+    {% csrf_token %}
+    {{ register_form|crispy }}
+    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-secondary" type="reset">Clear</button>
+</form>    
+
+{% comment %} <p>If you already have an account, use <a href="{% urls 'home:login' }">Login</a></p> 
+{% endcomment %}
+<p>If you already have an account, use <a href="{%url 'home:login'%}">Login</a></p>
+</div>
+{%endblock%}
+
+{% include 'home/footer.html' %}

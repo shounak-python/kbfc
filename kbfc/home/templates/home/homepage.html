@@ -1,0 +1,6 @@
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block homepage%} {% if user.is_authenticated %} {% load static %} 
+
+KBFC Homepage
+
+
+{% else %} Please Login First {% endif %} {%endblock%} {% include 'home/footer.html' %}

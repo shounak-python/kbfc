@@ -1,0 +1,6 @@
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block about%} {% if user.is_authenticated %} {% load static %} 
+
+About Content
+
+
+{% else %} Please Login First {% endif %} {%endblock%} {% include 'home/footer.html' %}
