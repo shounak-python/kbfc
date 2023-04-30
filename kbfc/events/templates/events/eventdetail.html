@@ -1,0 +1,16 @@
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block memberlist%} {% if user.is_authenticated %} {% load static %} 
+
+{% if event_obj %}
+{{event_obj.title}}
+{{event_obj.description}}
+{{event_obj.date}}
+{{day_of_week}}
+{{event_obj.time}}
+{{event_obj.event_duration}}
+{{event_obj.venue}}
+<br>
+{% else %}
+No events planned.
+{% endif %}
+
+{% else %} Please Login First {% endif %} {%endblock%} {% include 'home/footer.html' %}

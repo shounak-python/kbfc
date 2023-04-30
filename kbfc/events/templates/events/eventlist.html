@@ -1,0 +1,17 @@
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block memberlist%} {% if user.is_authenticated %} {% load static %} 
+
+{% if event_obj %}
+{% for event in event_obj %}
+{{ forloop.counter }}
+{{event.pk}}
+<a class="nav-link" aria-current="page" href="{% url 'events:eventdetail' event.pk %}">{{event.title}}</a>
+{{event.title}}
+{{event.date}}
+{{event.venue}}
+<br>
+{% endfor %}
+{% else %}
+No events planned.
+{% endif %}
+
+{% else %} Please Login First {% endif %} {%endblock%} {% include 'home/footer.html' %}
