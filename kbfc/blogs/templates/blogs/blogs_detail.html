@@ -1,0 +1,21 @@
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block blogdetail%} {% if user.is_authenticated %} {% load static %} 
+<a class="btn btn-primary" href="{% url 'blogs:blogs_list' %}" role="button">All Blogs</a>
+<div>
+    
+    <div class="anti-img-left">
+        <img class="img-right" src="/static/blogs/detail.jpg">
+        <h1><strong>{{ blogs.title }}</strong></h1>
+        <h3>by {{blogs.author}}</h3>
+        <p style="font-style: italic;">created: {{ blogs.created_at }}  
+            <br>updated: {{ blogs.updated_at }}<br>
+{% if blogs.author == user %}
+            <a href="{% url 'blogs:blogs_update' blogs.id %}"><i class="fa fa-pencil"></i> edit</a> |
+            <a href="{% url 'blogs:blogs_delete' blogs.id %}"><i class="fa fa-trash"></i> delete</a>
+            {% endif %}</p>
+            
+    </div>
+    <hr style="width:20%;" align=left>
+    <p>{{ blogs.content }}</p>
+    </div>
+
+{% else %} Please Login First {% endif %} {%endblock%} {% include 'home/footer.html' %}

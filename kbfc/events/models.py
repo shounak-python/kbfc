@@ -51,4 +51,4 @@ class Event(models.Model):
         return self.title
     
     class Meta():
-        verbose_name_plural = "Event"
+        verbose_name_plural = "Events"
