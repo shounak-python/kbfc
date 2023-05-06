@@ -1,4 +1,4 @@
-{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block memberlist%} {% if user.is_authenticated %} {% load static %} 
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block eventdetail%} {% if user.is_authenticated %} {% load static %} 
 
 {% if event_obj %}
 {{event_obj.title}}
