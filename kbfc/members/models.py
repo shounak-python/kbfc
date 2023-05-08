@@ -115,7 +115,7 @@ class MemberList(models.Model):
         help_text="Name of Member"
     )
 
-    image = models.ImageField(upload_to='upload/')
+    image = models.ImageField(upload_to='static/upload/')
 
     preferred_foot = models.ForeignKey(Foot,
         on_delete=models.CASCADE,
