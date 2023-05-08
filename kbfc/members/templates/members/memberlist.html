@@ -1,4 +1,5 @@
-{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block memberlist%} {% load static %} 
+{% include 'home/header.html' %} {% include 'home/messages.html' %} {%block memberlist%} 
+{% load static %}
 {% if user.is_authenticated %}
 
 
@@ -11,9 +12,11 @@
 				class="card card-cust"
 				style="width: 18rem; margin: auto;">
 				<img
-					src="{% static member.image.url %}"
+					src={{MEDIA_URL}}{{member.image.url}}
 					class="card-img-top card-img-cust"
 					alt="..." />
+					
+					{{MEDIA_ROOT}}{{member.image.url}}
 				<div class="card-body">
 					<h5 class="card-title">{{member.name}}</h5>
 					<h6 class="card-subtitle mb-2 text-muted">
@@ -42,7 +45,7 @@
 				class="card card-cust"
 				style="width: 18rem; margin: auto;">
 				<img
-					src="{% static member.image.url %}"
+					src="{{MEDIA_URL}}{{member.image.url}}"
 					class="card-img-top card-img-cust"
 					alt="..." />
 				<div class="card-body">
@@ -73,7 +76,7 @@
 				class="card card-cust"
 				style="width: 18rem; margin: auto;">
 				<img
-					src="{% static member.image.url %}"
+					src="{{MEDIA_URL}}{{member.image.url}}"
 					class="card-img-top card-img-cust"
 					alt="..." />
 				<div class="card-body">
@@ -104,7 +107,7 @@
 				class="card card-cust"
 				style="width: 18rem; margin: auto;">
 				<img
-					src="{% static member.image.url %}"
+					src="{{MEDIA_URL}}{{member.image.url}}"
 					class="card-img-top card-img-cust"
 					alt="..." />
 				<div class="card-body">
