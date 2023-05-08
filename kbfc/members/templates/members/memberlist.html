@@ -1,28 +1,129 @@
 {% include 'home/header.html' %} {% include 'home/messages.html' %} {%block memberlist%} {% load static %} 
+{% if user.is_authenticated %}
 
-{% if user.is_authenticated %} 
 
-{% if obj %} {% for member in obj %} {{ forloop.counter }} {{member.name}} {{member.phone}}
-<img
-	src="{{member.image.url}}"
-	alt=""
-	width="100"
-	height="100" />
-
-<div
-	class="card"
-	style="width: 18rem">
-    <img src="{{member.image.url}}" class="card-img-top" alt="...">
-	<div class="card-body">
-		<h5 class="card-title">{{member.name}}</h5>
-		<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-		<p class="card-text">
-			Some quick example text to build on the card title and make up the bulk of
-			the card's content.
-		</p>
+<div class="container-member" style="background-color: bisque;">
+	<h1>Goalkeepers</h1>
+	<div class="row">
+		{% if gk_members %} {% for member in gk_members %}
+		<div class="col-md-4 col-sm-6" style="padding: 0 0 2% 0; margin: auto;">
+			<div
+				class="card card-cust"
+				style="width: 18rem; margin: auto;">
+				<img
+					src="{{member.image.url}}"
+					class="card-img-top card-img-cust"
+					alt="..." />
+				<div class="card-body">
+					<h5 class="card-title">{{member.name}}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">
+						{{member.area_of_expertise}}
+					</h6>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">{{member.preferred_foot}} footed</li>
+						<li class="list-group-item">{{member.preferred_field_position}}</li>
+						<li class="list-group-item">{{member.secondary_field_position}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% else %} No Attackers on the Roster {% endif %}
 	</div>
 </div>
 
-<br />
-{% endfor %} {% else %} No members added {% endif %} {% else %} Please Login
-First {% endif %} {%endblock%} {% include 'home/footer.html' %}
+<hr>
+
+<div class="container-member" style="background-color: #D1FFF3;">
+	<h1>Defenders</h1>
+	<div class="row">
+		{% if defence_members %} {% for member in defence_members %}
+		<div class="col-md-4 col-sm-6" style="padding: 0 0 2% 0; margin: auto;">
+			<div
+				class="card card-cust"
+				style="width: 18rem; margin: auto;">
+				<img
+					src="{{member.image.url}}"
+					class="card-img-top card-img-cust"
+					alt="..." />
+				<div class="card-body">
+					<h5 class="card-title">{{member.name}}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">
+						{{member.area_of_expertise}}
+					</h6>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">{{member.preferred_foot}} footed</li>
+						<li class="list-group-item">{{member.preferred_field_position}}</li>
+						<li class="list-group-item">{{member.secondary_field_position}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% else %} No Attackers on the Roster {% endif %}
+	</div>
+</div>
+
+<hr>
+
+<div class="container-member" style="background-color: #FFEBEB;">
+	<h1>Midfielders</h1>
+	<div class="row">
+		{% if midfield_members %} {% for member in midfield_members %}
+		<div class="col-md-4 col-sm-6" style="padding: 0 0 2% 0; margin: auto;">
+			<div
+				class="card card-cust"
+				style="width: 18rem; margin: auto;">
+				<img
+					src="{{member.image.url}}"
+					class="card-img-top card-img-cust"
+					alt="..." />
+				<div class="card-body">
+					<h5 class="card-title">{{member.name}}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">
+						{{member.area_of_expertise}}
+					</h6>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">{{member.preferred_foot}} footed</li>
+						<li class="list-group-item">{{member.preferred_field_position}}</li>
+						<li class="list-group-item">{{member.secondary_field_position}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% else %} No Attackers on the Roster {% endif %}
+	</div>
+</div>
+
+<hr>
+
+<div class="container-member" style="background-color: #EBDEF0;">
+	<h1>Attackers</h1>
+	<div class="row">
+		{% if attack_members %} {% for member in attack_members %}
+		<div class="col-md-4 col-sm-6" style="padding: 0 0 2% 0; margin: auto;">
+			<div
+				class="card card-cust"
+				style="width: 18rem; margin: auto;">
+				<img
+					src="{{member.image.url}}"
+					class="card-img-top card-img-cust"
+					alt="..." />
+				<div class="card-body">
+					<h5 class="card-title">{{member.name}}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">
+						{{member.area_of_expertise}}
+					</h6>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">{{member.preferred_foot}} footed</li>
+						<li class="list-group-item">{{member.preferred_field_position, member.secondary_field_position}}</li>
+						<li class="list-group-item">{{member.php}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% else %} No Attackers on the Roster {% endif %}
+	</div>
+</div>
+
+
+{% else %} Please Login First {% endif %} {%endblock%} 
+{% include 'home/footer.html' %}

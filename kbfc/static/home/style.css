@@ -88,6 +88,14 @@ text-align: center;
 color: white;
 }
 
+.container-member {
+    position: relative;
+    text-align: center;
+    color: black;
+    margin: auto;
+    border-radius: 5%;
+    }
+
 .left-container {
     text-align: left;
     color:black;
@@ -117,6 +125,16 @@ hr {
     margin: 1% 0;
     text-align: center;
     font-weight: bold;
+}
+
+.card-cust {
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+}
+
+.card-img-cust {
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
 }
 
 .blog-meta {
